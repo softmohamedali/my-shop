@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.body.ShowPeoductFragment"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/img_shprofrag"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_230sdp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="@dimen/_30sdp"
+        app:layout_constraintTop_toBottomOf="@+id/img_shprofrag"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_name_shprofrag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="TextView"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/text"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RatingBar
+                android:id="@+id/rb_rating_shprofrag"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:rating="5"
+                android:progressTint="@color/myyellow"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_name_shprofrag"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_name_shprofrag" />
+
+            <TextView
+                android:id="@+id/tv_rating_shprodfrag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="5/10"
+                android:textStyle="bold"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="@+id/rb_rating_shprofrag"
+                app:layout_constraintStart_toStartOf="@+id/rb_rating_shprofrag"
+                app:layout_constraintTop_toBottomOf="@+id/rb_rating_shprofrag" />
+
+            <TextView
+                android:id="@+id/tv_offer_shprofrag"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="-40%"
+                android:textColor="@color/myredlight"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/mygray"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_name_shprofrag"
+                app:layout_constraintEnd_toStartOf="@+id/rb_rating_shprofrag"
+                app:layout_constraintStart_toEndOf="@+id/tv_name_shprofrag"
+                app:layout_constraintTop_toTopOf="@+id/tv_name_shprofrag" />
+
+            <TextView
+                android:id="@+id/tv_saleprice_shprofrag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="899 $"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/text"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_shprofrag"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name_shprofrag" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/size_avilabel"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_saleprice_shprofrag"
+                app:layout_constraintTop_toBottomOf="@+id/tv_saleprice_shprofrag" />
+
+            <TextView
+                android:id="@+id/tv_sizeavilable_showfrag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintEnd_toEndOf="@+id/rb_rating_shprofrag"
+                app:layout_constraintStart_toStartOf="@+id/textView15"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/color_avilable"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_sizeavilable_showfrag"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sizeavilable_showfrag" />
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recy_colorvilable_showfrag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_sizeavilable_showfrag"
+                app:layout_constraintStart_toStartOf="@+id/textView16"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/description"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/recy_colorvilable_showfrag"
+                app:layout_constraintTop_toBottomOf="@+id/recy_colorvilable_showfrag" />
+
+            <TextView
+                android:id="@+id/tv_discription_shprofrag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:maxLines="3"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintEnd_toEndOf="@+id/recy_colorvilable_showfrag"
+                app:layout_constraintStart_toStartOf="@+id/textView17"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_addtocart_shprofrag"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="@string/add_to_card"
+                app:cornerRadius="@dimen/_10sdp"
+                android:backgroundTint="@color/myred"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_discription_shprofrag"
+                app:layout_constraintStart_toStartOf="@+id/tv_discription_shprofrag"
+                app:layout_constraintTop_toBottomOf="@+id/tv_discription_shprofrag" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageButton
+        android:id="@+id/btn_back_shprofrag"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_back"
+        android:background="@color/none"
+        app:tint="@color/text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_orders_shprofrag"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/none"
+        android:src="@drawable/icon_cart"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

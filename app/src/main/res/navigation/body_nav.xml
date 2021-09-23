@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/body_nav"
+    app:startDestination="@id/mainBodyFragment">
+    <fragment
+        android:id="@+id/mainBodyFragment"
+        android:name="com.example.originalecommerce.ui.body.MainBodyFragment"
+        android:label="fragment_main_body"
+        tools:layout="@layout/fragment_main_body" >
+        <action
+            android:id="@+id/action_mainBodyFragment_to_showPeoductFragment"
+            app:destination="@id/showPeoductFragment" />
+        <action
+            android:id="@+id/action_mainBodyFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_mainBodyFragment_to_productsQueryFragment"
+            app:destination="@id/productsQueryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showPeoductFragment"
+        android:name="com.example.originalecommerce.ui.body.ShowPeoductFragment"
+        android:label="fragment_show_peoduct"
+        tools:layout="@layout/fragment_show_peoduct" >
+        <argument
+            android:name="product"
+            app:argType="com.example.originalecommerce.models.Product" />
+        <action
+            android:id="@+id/action_showPeoductFragment_to_choseAtributeFragment"
+            app:destination="@id/choseAtributeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.originalecommerce.ui.body.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/productsQueryFragment"
+        android:name="com.example.originalecommerce.ui.body.ProductsQueryFragment"
+        android:label="fragment_products_query"
+        tools:layout="@layout/fragment_products_query" />
+    <dialog
+        android:id="@+id/choseAtributeFragment"
+        android:name="com.example.originalecommerce.ui.body.ChoseAtributeFragment"
+        android:label="fragment_chose_atribute"
+        tools:layout="@layout/fragment_chose_atribute" >
+        <argument
+            android:name="prod"
+            app:argType="com.example.originalecommerce.models.Product" />
+    </dialog>
+</navigation>
