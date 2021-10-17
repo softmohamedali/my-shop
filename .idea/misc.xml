@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/back_button.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/back_img_catigory.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/back_img_favitem.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/back_img_user_mainfrag.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/back_white.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/card.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/checkbox_fill.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_add.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_back.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_cheak.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_delete.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_fav.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_home.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_image.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_mail.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_min.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_noitem.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_notification.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_pags.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_person.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_search.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_setting.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/ic_square.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_b_o.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_cart.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_delete.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_devices.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_edit_profile.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_exit.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_explore.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_facebook.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_gadgets.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_gaming.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_google.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_location.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_mastercard.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_mens_shoe.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_notifications.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_search.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_track_order.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_wishlist.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_wishlist_colored.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/drawable/icon_womens_shoe.xml" value="0.2703125" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/activity_auth.xml" value="0.22592592592592592" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/activity_body.xml" value="0.25025641025641027" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_catigores.xml" value="0.264" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_chose_atribute.xml" value="0.264" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_fav.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_forget_pass.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_help.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_log_in.xml" value="0.25025641025641027" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_main_body.xml" value="0.25025641025641027" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_maps.xml" value="0.264" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_mycart.xml" value="0.264" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_notification.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_order_info.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_payment.xml" value="0.25025641025641027" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_payment_method.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_product_catigory.xml" value="0.264" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_register.xml" value="0.25025641025641027" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_search.xml" value="0.24010416666666667" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_setting.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_show_my_order.xml" value="0.22592592592592592" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_show_order.xml" value="0.21342592592592594" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_show_peoduct.xml" value="0.2" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_splach.xml" value="0.2101851851851852" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/fragment_user.xml" value="0.25025641025641027" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_catigory_item.xml" value="0.25025641025641027" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_dot_color_item.xml" value="0.25025641025641027" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_drop_et.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_fav_item.xml" value="0.264" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_offers_slider_item.xml" value="0.2101851851851852" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_order_item.xml" value="0.264" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_order_itemm.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_product_item.xml" value="0.25025641025641027" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_shimmer_catigory.xml" value="0.22592592592592592" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_shimmer_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_show_order_item.xml" value="0.264" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_succes.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_succes_location.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_success_toast.xml" value="0.25416666666666665" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/menu/bottom_nav.xml" value="0.25025641025641027" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

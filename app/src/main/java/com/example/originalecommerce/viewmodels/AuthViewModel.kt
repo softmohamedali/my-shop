@@ -14,11 +14,13 @@ class AuthViewModel @Inject constructor(
 ):ViewModel() {
 
     //------------------variables---------------------------------------
-    private var _isRegister=MutableLiveData<StatusResult<FirebaseUser>>()
-    private var _isLogin=MutableLiveData<StatusResult<FirebaseUser>>()
+    private val _isRegister=MutableLiveData<StatusResult<FirebaseUser>>()
+    private val _isLogin=MutableLiveData<StatusResult<FirebaseUser>>()
+    private val _resetPassword= MutableLiveData<StatusResult<String>>()
 
-    var isRegister:LiveData<StatusResult<FirebaseUser>> =_isRegister
+    val isRegister:LiveData<StatusResult<FirebaseUser>> =_isRegister
     val isLogin:LiveData<StatusResult<FirebaseUser>> get() = _isLogin
+    val resetPassword:LiveData<StatusResult<String>> get() = _resetPassword
     var currentUser=repo.fireBasecSource.getCurrentUser()
 
     //------------------fun--------------------------------------------
@@ -48,7 +50,20 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+
     fun logOut(){
         repo.fireBasecSource.logOut()
+    }
+
+    fun resetPasswoed(email: String){
+        _resetPassword.value=StatusResult.Loading()
+        repo.fireBasecSource.resetPassword(email)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    _resetPassword.value=StatusResult.Success()
+                }else{
+                    _resetPassword.value=StatusResult.Error(it.exception?.message)
+                }
+            }
     }
 }

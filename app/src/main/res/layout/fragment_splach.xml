@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.SplachFragment">
+    tools:context=".ui.auth.SplachFragment"
+    android:backgroundTint="@color/background">
 
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
         android:src="@drawable/icon_cart"
+        app:tint="@color/icons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Fashion Story"
-        android:textColor="@color/black"
+        android:textColor="@color/text1"
         android:textSize="@dimen/_30sdp"
         app:layout_constraintEnd_toEndOf="@+id/imageView11"
         app:layout_constraintStart_toStartOf="@+id/imageView11"

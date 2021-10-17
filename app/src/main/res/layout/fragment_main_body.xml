@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.body.MainBodyFragment"
-    android:background="@color/white"
+    android:background="@color/background"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,22 +17,23 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/ibtn_notifi_mainfrag"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/background"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_notification"
+            app:tint="@color/icons"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/img" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
+            android:id="@+id/btn_search_mainfrag"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/mygray"
@@ -46,7 +47,7 @@
             app:iconTint="@color/darkgray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/materialCardView"
-            app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintStart_toEndOf="@+id/ibtn_notifi_mainfrag"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.card.MaterialCardView
@@ -60,13 +61,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/img_user_mainfrag"
+                android:id="@+id/img_myorders_mainfrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@drawable/back_img_user_mainfrag"
                 android:contentDescription="@string/img"
                 android:scaleType="centerCrop"
-                tools:src="@tools:sample/avatars" />
+                android:src="@drawable/ic_orders"
+                app:tint="@color/icons"/>
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -94,7 +96,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:text="@string/offers"
-                android:textColor="@color/text"
+                android:textColor="@color/text1"
                 android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
 
@@ -102,13 +104,12 @@
                 android:id="@+id/img_mainfrag_slideroffers"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_180sdp"
-                app:iss_auto_cycle="true"
-                app:iss_period="1000"
-                app:iss_delay="0"
                 android:textAlignment="center"
-
+                app:iss_auto_cycle="true"
+                app:iss_delay="0"
                 app:iss_error_image="@drawable/error"
-                />
+                app:iss_period="1000" />
+
             <LinearLayout
                 android:id="@+id/dots_container"
                 android:layout_width="match_parent"
@@ -126,7 +127,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:text="@string/catigories"
-                android:textColor="@color/text"
+                android:textColor="@color/text1"
                 android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
 
@@ -134,46 +135,8 @@
                 android:id="@+id/recy_catigory_mainfrag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:shimmer_recycler_layout="@layout/catigory_shimmer_layout"
+                app:shimmer_recycler_layout="@layout/layout_shimmer_catigory"
                 app:shimmer_recycler_item_count="4"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_16sdp"
-                    android:layout_weight="2"
-                    android:text="Recomended For You"
-                    android:textColor="@color/text"
-                    android:textSize="@dimen/_15sdp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16sdp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="@string/see_all"
-                    android:textColor="@color/darkgray"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <com.todkars.shimmer.ShimmerRecyclerView
-                android:id="@+id/recy_allProd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:shimmer_recycler_item_count="3"
-                app:shimmer_recycler_layout="@layout/product_shimmer_layout"
-                />
 
 
             <LinearLayout
@@ -190,7 +153,7 @@
                     android:layout_marginStart="@dimen/_16sdp"
                     android:layout_weight="2"
                     android:text="@string/best_saller"
-                    android:textColor="@color/text"
+                    android:textColor="@color/text1"
                     android:textSize="@dimen/_15sdp"
                     android:textStyle="bold" />
 
@@ -205,14 +168,14 @@
                     android:textSize="@dimen/_12sdp"
                     android:textStyle="bold" />
             </LinearLayout>
+
             <com.todkars.shimmer.ShimmerRecyclerView
                 android:id="@+id/recy_bestsallerProd"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:shimmer_recycler_item_count="3"
-                app:shimmer_recycler_layout="@layout/product_shimmer_layout"
+                android:layout_height="800dp"
                 android:layout_marginBottom="16dp"
-                />
+                app:shimmer_recycler_item_count="3"
+                app:shimmer_recycler_layout="@layout/layout_shimmer_product" />
 
         </LinearLayout>
     </ScrollView>

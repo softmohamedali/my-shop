@@ -4,25 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.body.UserFragment">
+    tools:context=".ui.body.UserFragment"
+    android:background="@color/background">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/imageView3"
-        android:layout_width="@dimen/_80sdp"
-        android:layout_height="@dimen/_80sdp"
-        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="1000dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_user_user"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:background="@color/mygray"
+            android:src="@drawable/ic_person"
+            app:tint="#80000000" />
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_name_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textColor="@color/text"
+        android:textColor="@color/text1"
         android:textSize="@dimen/_15sdp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
@@ -36,14 +46,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_user">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/circleImageView"
+                android:id="@+id/btn_infoorder"
                 android:src="@drawable/ic_person"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
@@ -55,87 +65,127 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/tv_infoorder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:text="@string/my_account"
-                android:textColor="@color/text"
+                android:text="@string/info_for_ordering"
+                android:textColor="@color/text1"
                 android:textSize="@dimen/_15sdp"
-                app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
-                app:layout_constraintStart_toEndOf="@+id/circleImageView"
-                app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+                app:layout_constraintBottom_toBottomOf="@+id/btn_infoorder"
+                app:layout_constraintStart_toEndOf="@+id/btn_infoorder"
+                app:layout_constraintTop_toTopOf="@+id/btn_infoorder" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/btn_bymeth"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/back_img_catigory"
                 android:src="@drawable/icon_payment"
-                app:layout_constraintEnd_toEndOf="@+id/circleImageView"
-                app:layout_constraintStart_toStartOf="@+id/circleImageView"
-                app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_infoorder"
+                app:layout_constraintStart_toStartOf="@+id/btn_infoorder"
+                app:layout_constraintTop_toBottomOf="@+id/btn_infoorder" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/btn_paymeth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/payment_method"
-                android:textColor="@color/text"
+                android:textColor="@color/text1"
                 android:textSize="@dimen/_15sdp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-                app:layout_constraintStart_toStartOf="@+id/textView5"
-                app:layout_constraintTop_toTopOf="@+id/imageView8" />
+                app:layout_constraintBottom_toBottomOf="@+id/btn_bymeth"
+                app:layout_constraintStart_toStartOf="@+id/tv_infoorder"
+                app:layout_constraintTop_toTopOf="@+id/btn_bymeth" />
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/btn_help"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/back_img_catigory"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/icon_devices"
+                app:layout_constraintEnd_toEndOf="@+id/btn_bymeth"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/btn_bymeth"
+                app:layout_constraintTop_toBottomOf="@+id/btn_bymeth" />
+
+            <TextView
+                android:id="@+id/tv_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Help &amp; Feed Back"
+                android:textColor="@color/text1"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_help"
+                app:layout_constraintStart_toStartOf="@+id/btn_paymeth"
+                app:layout_constraintTop_toTopOf="@+id/btn_help" />
+
+            <ImageView
+                android:id="@+id/btn_setting"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/back_img_catigory"
                 android:padding="@dimen/_10sdp"
-                android:src="@drawable/icon_devices"
-                app:layout_constraintEnd_toEndOf="@+id/imageView8"
-                app:layout_constraintStart_toStartOf="@+id/imageView8"
-                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+                android:src="@drawable/ic_setting"
+                app:layout_constraintEnd_toEndOf="@+id/btn_help"
+                app:layout_constraintStart_toStartOf="@+id/btn_help"
+                app:layout_constraintTop_toBottomOf="@+id/btn_help" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/tv_setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Help &amp; Feed Back"
-                android:textColor="@color/text"
+                android:layout_marginBottom="5dp"
+                android:text="@string/setting"
+                android:textColor="@color/text1"
                 android:textSize="@dimen/_15sdp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-                app:layout_constraintStart_toStartOf="@+id/textView11"
-                app:layout_constraintTop_toTopOf="@+id/imageView9" />
+                app:layout_constraintBottom_toBottomOf="@+id/btn_setting"
+                app:layout_constraintStart_toStartOf="@+id/tv_help"
+                app:layout_constraintTop_toTopOf="@+id/btn_setting" />
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/img_logout_user"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
                 android:background="@drawable/back_img_catigory"
-                android:padding="@dimen/_10sdp"
-                android:src="@drawable/ic_setting"
+                android:src="@drawable/icon_exit"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageView9"
-                app:layout_constraintStart_toStartOf="@+id/imageView9"
-                app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_setting"
+                app:layout_constraintStart_toStartOf="@+id/btn_setting"
+                app:layout_constraintTop_toBottomOf="@+id/btn_setting" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/tv_logout_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:text="@string/setting"
-                android:textColor="@color/text"
+                android:text="@string/log_out"
+                android:textColor="@color/text1"
                 android:textSize="@dimen/_15sdp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-                app:layout_constraintStart_toStartOf="@+id/textView19"
-                app:layout_constraintTop_toTopOf="@+id/imageView10" />
+                app:layout_constraintBottom_toBottomOf="@+id/img_logout_user"
+                app:layout_constraintStart_toStartOf="@+id/tv_setting"
+                app:layout_constraintTop_toTopOf="@+id/img_logout_user" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back_user"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:backgroundTint="@color/back_back_btn"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_back"
+        app:iconTint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/black"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,6 @@ sealed class StatusResult <T>(
 )
 {
     class Success <T>(data: T?=null):StatusResult<T>(data)
-    class Error<T>(masg: String?):StatusResult<T>(null,masg)
+    class Error<T>(masg: String?,data: T?=null):StatusResult<T>(data,masg)
     class Loading<T>(data: T?=null):StatusResult<T>(data)
 }

@@ -2,11 +2,13 @@ package com.example.originalecommerce.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.originalecommerce.databinding.LayoutCatigoryItemBinding
 import com.example.originalecommerce.databinding.LayoutProductItemBinding
 import com.example.originalecommerce.models.Product
+import com.example.originalecommerce.ui.body.MainBodyFragmentDirections
 import com.example.orignal_ecommerce_manger.models.Catigory
 import com.example.orignal_ecommerce_manger.util.MyDiff
 import com.squareup.picasso.Picasso
@@ -35,6 +37,11 @@ class CatigoryItemAdapter:RecyclerView.Adapter<CatigoryItemAdapter.VH>() {
         Picasso.get().load(cat.img)
             .into(view.imgCatiitemlay)
         view.tvNameCatitem.text=cat.name
+
+        holder.itemView.setOnClickListener {
+            val action=MainBodyFragmentDirections.actionMainBodyFragmentToProductCatigoryFragment(cat.name)
+            it.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

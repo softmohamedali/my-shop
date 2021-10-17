@@ -2,23 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/fav"
-        android:icon="@drawable/ic_fav"
-        android:title="fav"/>
+        android:id="@+id/catigoresFragment"
+        android:icon="@drawable/ic_square"
+        android:title="@string/catigores"/>
     <item
-        android:id="@+id/square"
-        android:icon="@drawable/icon_track_order"
-        android:title="t"/>
+        android:id="@+id/myCartFragment"
+        android:icon="@drawable/icon_cart"
+        android:title="@string/my_cart"/>
     <item
-        android:id="@+id/home"
+        android:id="@+id/mainBodyFragment"
         android:icon="@drawable/ic_home"
-        android:title="home"/>
+        android:title="@string/home"/>
+
     <item
-        android:id="@+id/gsd"
-        android:icon="@drawable/icon_payment"
-        android:title="vsdf"/>
+        android:id="@+id/favFragment"
+        android:icon="@drawable/ic_fav"
+        android:title="@string/my_fav"
+        />
+
     <item
-        android:id="@+id/person"
+        android:id="@+id/userFragment"
         android:icon="@drawable/ic_person"
-        android:title="person"/>
+        android:title="@string/account"/>
 </menu>

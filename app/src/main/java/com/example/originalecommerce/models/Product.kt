@@ -1,6 +1,9 @@
 package com.example.originalecommerce.models
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.example.originalecommerce.utils.Constants
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -19,6 +22,7 @@ data class Product(
     var isBestSaller:String?=null,
     var isRecommended:String?=null,
     var sizeAvilable:String?=null,
-    var colorAvialable:MutableList<String>?=null
+    var colorAvialable:MutableList<String>?=null,
+    var type:String?=null
 ):Parcelable {
 }

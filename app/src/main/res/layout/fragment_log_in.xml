@@ -5,16 +5,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.auth.LogInFragment"
-    android:background="@color/mygray">
+    android:background="@color/background">
 
 
     <TextView
         android:id="@+id/tv_name_catitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="@string/log_in"
-        android:textColor="@color/text"
+        android:textColor="@color/text1"
         android:textSize="@dimen/_20sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,25 +22,25 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editTextTextEmailAddress"
+        style="@style/CustomEditTExt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="24dp"
         android:hint="Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_catitem"
-        app:startIconDrawable="@drawable/ic_mail"
-        style="@style/CustomEditTExt">
+        app:startIconDrawable="@drawable/ic_mail">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_loginfrag_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/background"
             android:inputType="textEmailAddress"
-            />
+            android:text="m@gmail.com" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,21 +60,22 @@
             android:id="@+id/et_loginfrag_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/background"
             android:inputType="textPassword"
+            android:text="123456"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_loginfrag_login"
+        style="@style/CustomButton"
         android:layout_width="0dp"
         android:layout_height="@dimen/_45sdp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="24dp"
         android:text="log In"
-        style="@style/CustomButton"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPasswordj"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPasswordj"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPasswordj" />
@@ -85,21 +86,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/myred"
+        app:layout_constraintBottom_toTopOf="@+id/btn_loginfrag_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextEmailAddress"
         app:layout_constraintVertical_bias="0.532" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:text="@string/welcome_in_fashion_shop"
-        android:textStyle="bold"
-        android:textColor="@color/text"
+        android:textColor="@color/text1"
         android:textSize="@dimen/_23sdp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -109,7 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/dont_have_email_register"
-        android:textColor="@color/darkgray"
+        android:textColor="@color/text1"
         android:textSize="@dimen/_12sdp"
         app:layout_constraintEnd_toEndOf="@+id/btn_loginfrag_login"
         app:layout_constraintStart_toStartOf="@+id/btn_loginfrag_login"
@@ -122,9 +126,26 @@
         android:layout_marginTop="16dp"
         android:text="Forget Password"
         android:textSize="@dimen/_10sdp"
-        android:textColor="@color/purple_200"
+        android:textColor="@color/text1"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/tv_gotoregister"
         app:layout_constraintStart_toStartOf="@+id/tv_gotoregister"
         app:layout_constraintTop_toBottomOf="@+id/tv_gotoregister" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_singinfrag_singgoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/continue_with_google"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/text1"
+        android:background="@color/none"
+        android:textStyle="bold"
+        app:icon="@drawable/icon_google"
+        app:iconTint="@color/text1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

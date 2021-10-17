@@ -2,15 +2,52 @@
     <!-- Base application theme. -->
     <style name="Theme.OriginalEcommerce" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/myred</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorOnPrimary">@color/text1</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/myred</item>
+        <item name="colorSecondaryVariant">@color/myred</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor" tools:targetApi="l">#40000000</item>
     </style>
+
+    <style name="CustomEditTExt" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopEnd">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_10sdp</item>
+        <item name="strokeColor">@color/myred</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="hintTextColor">@color/myred</item>
+        <item name="startIconTint">@color/white</item>
+        <item name="boxStrokeColor">@color/myred</item>
+        <item name="boxBackgroundColor">@color/text1</item>
+    </style>
+
+    <style name="CustomEditTextDrop" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxCornerRadiusTopEnd">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_10sdp</item>
+        <item name="strokeColor">@color/myred</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="hintTextColor">@color/myred</item>
+        <item name="startIconTint">@color/white</item>
+        <item name="boxStrokeColor">@color/myred</item>
+    </style>
+
+    <style name="CustomButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/myred</item>
+        <item name="cornerRadius">15dp</item>
+    </style>
+
+    <style name="CustomBottomNav" parent="Widget.Design.BottomNavigationView">
+        <item name="backgroundTint">@color/text1</item>
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="itemTextColor">@color/bottom_nav_color</item>
+    </style>
+
+
 </resources>

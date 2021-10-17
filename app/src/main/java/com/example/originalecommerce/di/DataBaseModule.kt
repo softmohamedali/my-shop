@@ -22,7 +22,8 @@ object DataBaseModule {
                     context,
                     DataBase::class.java,
                     Constants.DATABASE_NAME
-            ).build()
+            )
+                .fallbackToDestructiveMigration().build()
 
     @Provides
     @Singleton

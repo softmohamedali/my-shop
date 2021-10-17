@@ -6,6 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:background="@color/background"
     >
 
     <com.google.android.material.card.MaterialCardView
@@ -16,21 +17,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="@dimen/_5sdp"
+        android:outlineProvider="none"
         android:background="@drawable/back_white">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/_5sdp"
-            android:background="@android:color/transparent"
+            android:background="@color/background"
             >
 
             <ImageView
                 android:id="@+id/img_catiitemlay"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
                 android:background="@drawable/back_img_catigory"
                 android:padding="@dimen/_8sdp"
-                android:src="@drawable/icooon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -39,10 +40,9 @@
                 android:id="@+id/tv_name_catitem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
                 android:text="TextView"
-                android:textColor="@color/text"
+                android:textColor="@color/text1"
                 android:textSize="@dimen/_15sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/img_catiitemlay"

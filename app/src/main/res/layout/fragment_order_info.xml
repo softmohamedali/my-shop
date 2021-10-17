@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.body.OrderInfoFragment"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_info"
+        android:textColor="@color/text1"
+        android:textSize="@dimen/_18sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_back_orderinfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toEndOf="@+id/btn_back_orderinfo"
+        app:layout_constraintTop_toTopOf="@+id/btn_back_orderinfo" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back_orderinfo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:backgroundTint="@color/back_back_btn"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_back"
+        app:iconTint="@color/icons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back_orderinfo">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_firstnamae_clientpayinfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/full_name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toStartOf="@+id/et_lastname_clientpayinfo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_lastname_clientpayinfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/last_product"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/et_firstnamae_clientpayinfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/et_firstnamae_clientpayinfo" />
+
+
+            <EditText
+                android:id="@+id/et_numornamebuild_clientpayinfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/name_or_num_of_building"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/et_lastname_clientpayinfo"
+                app:layout_constraintStart_toStartOf="@+id/et_firstnamae_clientpayinfo"
+                app:layout_constraintTop_toBottomOf="@+id/btn_cheaklocation_clientinfofrag" />
+
+            <EditText
+                android:id="@+id/et_floor_clientpayinfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/floor_number"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/et_numornamebuild_clientpayinfo"
+                app:layout_constraintStart_toStartOf="@+id/et_numornamebuild_clientpayinfo"
+                app:layout_constraintTop_toBottomOf="@+id/et_numornamebuild_clientpayinfo" />
+
+            <EditText
+                android:id="@+id/et_marker_clientpayinfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/famous_marker"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/et_floor_clientpayinfo"
+                app:layout_constraintStart_toStartOf="@+id/et_floor_clientpayinfo"
+                app:layout_constraintTop_toBottomOf="@+id/et_floor_clientpayinfo" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout3"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/et_marker_clientpayinfo"
+                app:layout_constraintStart_toStartOf="@+id/et_marker_clientpayinfo"
+                app:layout_constraintTop_toBottomOf="@+id/et_marker_clientpayinfo">
+
+                <AutoCompleteTextView
+                    android:id="@+id/et_placetype_clientpayinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/none"
+                    android:hint="@string/place"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <EditText
+                android:id="@+id/et_phonenumber_clientpayinfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/phone_number"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
+            <EditText
+                android:id="@+id/et_note_clientpayinfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/any_note"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/et_phonenumber_clientpayinfo"
+                app:layout_constraintStart_toStartOf="@+id/et_phonenumber_clientpayinfo"
+                app:layout_constraintTop_toBottomOf="@+id/et_phonenumber_clientpayinfo" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_confpayment_clientpayinfo"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:text="@string/confirm_payment"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:backgroundTint="@color/myred"
+                app:cornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/et_note_clientpayinfo"
+                app:layout_constraintStart_toStartOf="@+id/et_note_clientpayinfo"
+                app:layout_constraintTop_toBottomOf="@+id/et_note_clientpayinfo" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cheaklocation_clientinfofrag"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@color/myred"
+                android:text="@string/cheak_location"
+                android:textColor="@color/white"
+                app:cornerRadius="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/cb_location_cheaked_clientinfofrag"
+                app:layout_constraintStart_toStartOf="@+id/et_firstnamae_clientpayinfo"
+                app:layout_constraintTop_toBottomOf="@+id/et_firstnamae_clientpayinfo" />
+
+            <CheckBox
+                android:id="@+id/cb_location_cheaked_clientinfofrag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_cheaklocation_clientinfofrag"
+                app:layout_constraintEnd_toEndOf="@+id/et_lastname_clientpayinfo"
+                app:layout_constraintTop_toTopOf="@+id/btn_cheaklocation_clientinfofrag" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

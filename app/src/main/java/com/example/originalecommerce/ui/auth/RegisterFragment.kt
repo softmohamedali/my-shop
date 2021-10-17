@@ -1,7 +1,10 @@
 package com.example.originalecommerce.ui.auth
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.PatternMatcher
+import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,15 +16,27 @@ import androidx.navigation.fragment.findNavController
 import com.example.originalecommerce.R
 import com.example.originalecommerce.databinding.FragmentLogInBinding
 import com.example.originalecommerce.databinding.FragmentRegisterBinding
+import com.example.originalecommerce.ui.body.BodyActivity
+import com.example.originalecommerce.utils.Constants
 import com.example.originalecommerce.viewmodels.AuthViewModel
 import com.example.orignal_ecommerce_manger.util.StatusResult
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import dagger.Provides
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.util.regex.Pattern
+import javax.inject.Singleton
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding?=null
     private val binding get() = _binding!!
+
 
     private val authViewModek by viewModels<AuthViewModel>()
 
@@ -35,15 +50,14 @@ class RegisterFragment : Fragment() {
     }
 
     private fun setUPpView(){
+
         binding.btnRegfragRegietr.setOnClickListener {
             register()
         }
         binding.btnRegisterfragBack.setOnClickListener {
             findNavController().popBackStack()
         }
-        binding.btnRegisterfragSinggoogle.setOnClickListener {
 
-        }
         authViewModek.isRegister.observe(viewLifecycleOwner,{
             when{
                 it is StatusResult.Error ->{
@@ -114,15 +128,13 @@ class RegisterFragment : Fragment() {
         authViewModek.register(email,pass,name)
 
     }
+
+
     override fun onDestroy() {
         super.onDestroy()
         _binding=null
     }
 }
-
-
-
-
 
 
 

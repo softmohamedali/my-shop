@@ -4,11 +4,19 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.originalecommerce.data.local.entites.ProductsEntity
+import com.example.originalecommerce.data.local.entitys.*
+import com.example.originalecommerce.models.Product
+import com.example.orignal_ecommerce_manger.models.Catigory
 
 @Database(
-        entities = arrayOf(ProductsEntity::class),
-        version = 1,
+        entities = arrayOf(
+            BestSallerEntity::class,
+            CatigoryEntity::class,
+            OfferEntity::class,
+            FavEntity::class,
+            OrderEntity::class
+        ),
+        version =4,
         exportSchema = false
 )
 @TypeConverters(MyTypeConverter::class)

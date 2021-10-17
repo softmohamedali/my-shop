@@ -7,16 +7,17 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.originalecommerce.R
+import com.example.originalecommerce.databinding.LayoutDotColorItemBinding
 
 
 class AdapterColorItem:RecyclerView.Adapter<AdapterColorItem.Vh>() {
     private val colorsList= mutableListOf<String>()
-    class Vh(var view: View):RecyclerView.ViewHolder(view)
+    class Vh(var view:LayoutDotColorItemBinding):RecyclerView.ViewHolder(view.root)
     {
         companion object{
             fun from(parent: ViewGroup):AdapterColorItem.Vh
             {
-                val view=LayoutInflater.from(parent.context).inflate(R.layout.layout_dot_color_item,parent,false)
+                val view=LayoutDotColorItemBinding.inflate(LayoutInflater.from(parent.context))
                 return Vh(view)
             }
         }
@@ -28,7 +29,7 @@ class AdapterColorItem:RecyclerView.Adapter<AdapterColorItem.Vh>() {
 
     override fun onBindViewHolder(holder: Vh, position: Int) {
         val color=colorsList[position]
-        holder.view.setBackgroundColor(Color.parseColor(color))
+        holder.view.colorDot.setBackgroundColor(Color.parseColor(color))
 
     }
 
