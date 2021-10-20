@@ -12,6 +12,7 @@ import com.example.originalecommerce.data.local.entitys.*
 import com.example.originalecommerce.models.Paymnts
 import com.example.originalecommerce.models.Product
 import com.example.originalecommerce.repo.MainRepo
+import com.example.originalecommerce.utils.Constants
 import com.example.orignal_ecommerce_manger.models.Catigory
 import com.example.orignal_ecommerce_manger.util.StatusResult
 import com.google.firebase.firestore.DocumentSnapshot
@@ -35,6 +36,8 @@ class MainViewModel @Inject constructor(
     val readCatigory = repo.dataBaseSource.getDao().getAllCatigory().asLiveData()
     val readFavEntity = repo.dataBaseSource.getDao().getAllOFavProd().asLiveData()
     val readOrders=repo.dataBaseSource.getDao().getAllOrders().asLiveData()
+    val readNotification=repo.dataBaseSource.getDao().getAllNotification().asLiveData()
+
 
     fun insertBestProd(prods: BestSallerEntity) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -57,6 +60,13 @@ class MainViewModel @Inject constructor(
     fun insertFav(favEntity: FavEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             repo.dataBaseSource.getDao().insertFavProds(favEntity)
+        }
+    }
+
+    fun insertNotification(notificationEntity: NotificationEntity)
+    {
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.dataBaseSource.getDao().insertNotific(notificationEntity)
         }
     }
 
@@ -151,7 +161,20 @@ class MainViewModel @Inject constructor(
                         _productType.value = StatusResult.Error(error?.message)
                     }
                 }
-            }else{
+            }else if(type==Constants.PRODUCT_TIME){
+                repo.fireBasecSource.getSortedProduct().addSnapshotListener { value, error ->
+                    if (value != null && error == null) {
+                        val response = handleGetProductResult(value.documents)
+                        _productType.value = response
+
+                        if (response.data != null) {
+                            insertBestProd(BestSallerEntity(response.data!!))
+                        }
+                    } else {
+                        _productType.value = StatusResult.Error(error?.message)
+                    }
+                }
+            } else{
                 repo.fireBasecSource.getProductWithType(type).addSnapshotListener { value, error ->
                     if (value != null && error == null) {
                         val response = handleGetProductResult(value.documents)
@@ -234,16 +257,30 @@ class MainViewModel @Inject constructor(
     fun getProductSearch(name: String) {
         _search.value = StatusResult.Loading()
         if (hasInternetConnection()) {
-            repo.fireBasecSource.search(name).addSnapshotListener { value, error ->
-                if (value != null && error == null) {
-                    _search.value = handlegetProductWithCatigory(value.documents)
-                } else {
-                    _search.value = StatusResult.Error("${error?.message}")
+            repo.fireBasecSource.search(name).addOnSuccessListener {
+                if (!it.documents.isEmpty())
+                {
+                    _search.value = handlegetProductWithCatigory(it.documents)
+                }else{
+                    _search.value = StatusResult.Error("No Product Found")
                 }
+
+            }.addOnFailureListener {
+                _search.value = StatusResult.Error(it.message)
             }
         } else {
             _search.value = StatusResult.Error("No Internet Connection")
         }
+//            .addOnFailureListener {
+//                searchProduct.value=StatusResult.Error(it.message)
+//            }
+//            .addOnSuccessListener { value, error ->
+//                if (value != null && error == null) {
+//                    _search.value = handlegetProductWithCatigory(value.documents)
+//                } else {
+//                    _search.value = StatusResult.Error("${error?.message}")
+//                }
+//            }
     }
     //-----------------------------------------------------
 
@@ -282,7 +319,7 @@ class MainViewModel @Inject constructor(
     //---------------------------------------------------------
 
 
-
+    //-------------------------Payment-------------------------
     fun getAllPayments(){
         _myPayments.value=StatusResult.Loading()
         if (hasInternetConnection())
@@ -330,6 +367,7 @@ class MainViewModel @Inject constructor(
             }
     }
     //------------------------------------------------------------------------
+
 
 
     private fun hasInternetConnection(): Boolean {

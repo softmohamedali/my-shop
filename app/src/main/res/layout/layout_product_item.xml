@@ -55,7 +55,7 @@
                     android:background="@color/background"
                     android:gravity="center"
                     android:text="-40%"
-                    android:textColor="@color/text1"
+                    android:textColor="@color/myred"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"

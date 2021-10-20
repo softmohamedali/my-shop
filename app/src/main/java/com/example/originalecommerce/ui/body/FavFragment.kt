@@ -68,6 +68,7 @@ class FavFragment : Fragment() {
         {
             binding.imgErrorFavfrag.visibility=View.VISIBLE
             binding.tvErrorFavfrag.visibility=View.VISIBLE
+
         }else{
             binding.imgErrorFavfrag.visibility=View.INVISIBLE
             binding.tvErrorFavfrag.visibility=View.INVISIBLE

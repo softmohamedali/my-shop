@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -39,36 +40,48 @@ class SearchFragment : Fragment() {
 
     private fun setUPView() {
         setUpRecy()
+        showEmptyData(true,"Enter text to search")
         binding.btnBackSearch.setOnClickListener {
             findNavController().popBackStack()
+        }
+        binding.etSearch.doOnTextChanged { text, start, before, count ->
+            if (text.toString().isEmpty())
+            {
+                showEmptyData(true,"Enter text to search")
+                mainViewModel.getProductSearch("")
+            }else{
+                mainViewModel.getProductSearch(text.toString())
+            }
+
         }
         binding.fabSearch.setOnClickListener {
             val name=binding.etSearch.text.toString()
             if (name.isEmpty())
             {
-
+                showEmptyData(true,"Enter text to search")
             }else{
                 mainViewModel.getProductSearch(name)
-                mainViewModel.search.observe(viewLifecycleOwner,{
-                    when {
-                        it is StatusResult.Success -> {
-                            searchAdapter.setData(it.data!!)
-                            binding.pbSearch.visibility=View.INVISIBLE
-                            showEmptyData(false)
-                        }
-                        it is StatusResult.Error -> {
-                            showEmptyData(true)
-                            binding.pbSearch.visibility=View.INVISIBLE
-                        }
-                        it is StatusResult.Loading -> {
-                            showEmptyData(false)
-                            binding.pbSearch.visibility=View.VISIBLE
-                        }
-                    }
-                })
             }
 
         }
+        mainViewModel.search.observe(viewLifecycleOwner,{
+            when {
+                it is StatusResult.Success -> {
+                    searchAdapter.setData(it.data!!)
+                    binding.pbSearch.visibility=View.INVISIBLE
+                    showEmptyData(false)
+                }
+                it is StatusResult.Error -> {
+                    showEmptyData(true,it.masg!!)
+                    searchAdapter.setData(mutableListOf())
+                    binding.pbSearch.visibility=View.INVISIBLE
+                }
+                it is StatusResult.Loading -> {
+                    showEmptyData(false)
+                    binding.pbSearch.visibility=View.VISIBLE
+                }
+            }
+        })
     }
 
     private fun setUpRecy() {
@@ -78,12 +91,14 @@ class SearchFragment : Fragment() {
         }
     }
 
-    fun showEmptyData(show:Boolean)
+    fun showEmptyData(show:Boolean,msg:String="No Product found")
     {
         if (show)
         {
             binding.imgErrorSearch.visibility=View.VISIBLE
             binding.tvErrorSearch.visibility=View.VISIBLE
+            binding.tvErrorSearch.text=msg
+
         }else{
             binding.imgErrorSearch.visibility=View.INVISIBLE
             binding.tvErrorSearch.visibility=View.INVISIBLE

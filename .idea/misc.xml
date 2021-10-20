@@ -74,6 +74,7 @@
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_dot_color_item.xml" value="0.25025641025641027" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_drop_et.xml" value="0.25416666666666665" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_fav_item.xml" value="0.264" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_notification_item.xml" value="0.22592592592592592" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_offers_slider_item.xml" value="0.2101851851851852" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_order_item.xml" value="0.264" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_order_itemm.xml" value="0.25416666666666665" />
@@ -81,10 +82,13 @@
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_shimmer_catigory.xml" value="0.22592592592592592" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_shimmer_product.xml" value="0.25416666666666665" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_show_order_item.xml" value="0.264" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_slider_view.xml" value="0.22592592592592592" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_succes.xml" value="0.25416666666666665" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_succes_location.xml" value="0.25416666666666665" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/layout/layout_success_toast.xml" value="0.25416666666666665" />
         <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/menu/bottom_nav.xml" value="0.25025641025641027" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.236986301369863" />
+        <entry key="..\:/myProjects/OriginalEcommerce/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.236986301369863" />
       </map>
     </option>
   </component>

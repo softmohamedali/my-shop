@@ -11,7 +11,8 @@
         tools:layout="@layout/fragment_main_body" >
         <action
             android:id="@+id/action_mainBodyFragment_to_showPeoductFragment"
-            app:destination="@id/showPeoductFragment" />
+            app:destination="@id/showPeoductFragment"
+            app:enterAnim="@anim/anim_enter" />
         <action
             android:id="@+id/action_mainBodyFragment_to_userFragment"
             app:destination="@id/userFragment" />
@@ -20,16 +21,23 @@
             app:destination="@id/myCartFragment" />
         <action
             android:id="@+id/action_mainBodyFragment_to_productCatigoryFragment"
-            app:destination="@id/productCatigoryFragment" />
+            app:destination="@id/productCatigoryFragment"
+            app:enterAnim="@anim/anim_enter" />
         <action
             android:id="@+id/action_mainBodyFragment_to_notificationFragment"
-            app:destination="@id/notificationFragment" />
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/anim_enter" />
         <action
             android:id="@+id/action_mainBodyFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/anim_enter" />
         <action
             android:id="@+id/action_mainBodyFragment_to_showMyOrderFragment"
-            app:destination="@id/showMyOrderFragment" />
+            app:destination="@id/showMyOrderFragment"
+            app:enterAnim="@anim/anim_enter" />
+        <action
+            android:id="@+id/action_mainBodyFragment_to_favFragment"
+            app:destination="@id/favFragment" />
     </fragment>
     <fragment
         android:id="@+id/showPeoductFragment"
@@ -44,7 +52,8 @@
             app:destination="@id/choseAtributeFragment" />
         <action
             android:id="@+id/action_showPeoductFragment_to_myCartFragment"
-            app:destination="@id/myCartFragment" />
+            app:destination="@id/myCartFragment"
+            app:enterAnim="@anim/anim_enter" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -53,16 +62,20 @@
         tools:layout="@layout/fragment_user" >
         <action
             android:id="@+id/action_userFragment_to_paymentMethodFragment"
-            app:destination="@id/paymentMethodFragment" />
+            app:destination="@id/paymentMethodFragment"
+            app:enterAnim="@anim/anim_enter" />
         <action
             android:id="@+id/action_userFragment_to_orderInfoFragment"
-            app:destination="@id/orderInfoFragment" />
+            app:destination="@id/orderInfoFragment"
+            app:enterAnim="@anim/anim_enter" />
         <action
             android:id="@+id/action_userFragment_to_helpFragment"
-            app:destination="@id/helpFragment" />
+            app:destination="@id/helpFragment"
+            app:enterAnim="@anim/anim_enter" />
         <action
             android:id="@+id/action_userFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
+            app:destination="@id/settingFragment"
+            app:enterAnim="@anim/anim_enter" />
     </fragment>
     <dialog
         android:id="@+id/choseAtributeFragment"
@@ -80,10 +93,12 @@
         tools:layout="@layout/fragment_mycart" >
         <action
             android:id="@+id/action_myCartFragment_to_showPeoductFragment"
-            app:destination="@id/showPeoductFragment" />
+            app:destination="@id/showPeoductFragment"
+            app:enterAnim="@anim/anim_enter" />
         <action
             android:id="@+id/action_myCartFragment_to_paymentMethodFragment"
-            app:destination="@id/paymentMethodFragment" />
+            app:destination="@id/paymentMethodFragment"
+            app:enterAnim="@anim/anim_enter" />
         <action
             android:id="@+id/action_myCartFragment_to_paymentFragment"
             app:destination="@id/paymentFragment" />
@@ -100,7 +115,8 @@
         tools:layout="@layout/fragment_fav" >
         <action
             android:id="@+id/action_favFragment_to_showPeoductFragment"
-            app:destination="@id/showPeoductFragment" />
+            app:destination="@id/showPeoductFragment"
+            app:enterAnim="@anim/anim_enter" />
     </fragment>
     <fragment
         android:id="@+id/paymentMethodFragment"
@@ -109,7 +125,8 @@
         tools:layout="@layout/fragment_payment_method" >
         <action
             android:id="@+id/action_paymentMethodFragment_to_myCartFragment"
-            app:destination="@id/myCartFragment" />
+            app:destination="@id/myCartFragment"
+            app:enterAnim="@anim/anim_enter" />
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"
@@ -127,7 +144,8 @@
             app:nullable="true" />
         <action
             android:id="@+id/action_productCatigoryFragment_to_showPeoductFragment"
-            app:destination="@id/showPeoductFragment" />
+            app:destination="@id/showPeoductFragment"
+            app:enterAnim="@anim/anim_enter" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -150,10 +168,12 @@
         tools:layout="@layout/fragment_order_info" >
         <action
             android:id="@+id/action_orderInfoFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
+            app:destination="@id/mapsFragment"
+            app:enterAnim="@anim/anim_enter" />
         <action
             android:id="@+id/action_orderInfoFragment_to_paymentMethodFragment"
-            app:destination="@id/paymentMethodFragment" />
+            app:destination="@id/paymentMethodFragment"
+            app:enterAnim="@anim/anim_enter" />
         <argument
             android:name="latlong"
             app:argType="string"
@@ -175,6 +195,7 @@
         <action
             android:id="@+id/action_mapsFragment_to_orderInfoFragment"
             app:destination="@id/orderInfoFragment"
+            app:enterAnim="@anim/anim_enter"
             app:popUpTo="@id/orderInfoFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -200,6 +221,7 @@
         tools:layout="@layout/fragment_catigores" >
         <action
             android:id="@+id/action_catigoresFragment_to_showPeoductFragment"
-            app:destination="@id/showPeoductFragment" />
+            app:destination="@id/showPeoductFragment"
+            app:enterAnim="@anim/anim_enter" />
     </fragment>
 </navigation>

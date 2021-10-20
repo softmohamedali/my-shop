@@ -46,7 +46,7 @@ class MyCartFragment : Fragment() {
     @Inject
     lateinit var dataStore: DataStore<Preferences>
 
-    private lateinit var orders:MutableList<OrderEntity>
+    private  var orders:MutableList<OrderEntity>?=null
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -102,8 +102,8 @@ class MyCartFragment : Fragment() {
         return binding.root
     }
 
-    private fun cheakWhichNav(order: MutableList<OrderEntity>) {
-        if (binding.tvTotalpriceMycart.text=="0")
+    private fun cheakWhichNav(order: MutableList<OrderEntity>?) {
+        if (binding.tvTotalpriceMycart.text=="0"&&order==null)
         {
             Toast.makeText(requireActivity(),"No Orders yet",Toast.LENGTH_SHORT).show()
         }
@@ -115,7 +115,7 @@ class MyCartFragment : Fragment() {
         {
             findNavController().navigate(R.id.action_myCartFragment_to_orderInfoFragment)
         }else{
-            donePayments(order)
+            donePayments(order!!)
         }
     }
 
@@ -160,6 +160,8 @@ class MyCartFragment : Fragment() {
         {
             binding.imgErrorMycart.visibility=View.VISIBLE
             binding.tvErrorMycart.visibility=View.VISIBLE
+
+
         }else{
             binding.imgErrorMycart.visibility=View.INVISIBLE
             binding.tvErrorMycart.visibility=View.INVISIBLE

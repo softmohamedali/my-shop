@@ -41,8 +41,8 @@ class CatigoresFragment : Fragment() {
 
     private fun setupView() {
         setUpRecy()
-        setAllCheaked()
-        mMainViewModel.getProductType("")
+        setLastCheaked()
+        mMainViewModel.getProductType("time")
         mMainViewModel.productType.observe(viewLifecycleOwner,{
             when {
                 it is StatusResult.Success -> {
@@ -77,6 +77,10 @@ class CatigoresFragment : Fragment() {
             mMainViewModel.getProductType(Constants.TYPE_CHILD)
             setChiledCheaked()
         }
+        binding.btnTime.setOnClickListener {
+            mMainViewModel.getProductType(Constants.PRODUCT_TIME)
+            setLastCheaked()
+        }
         binding.btnBackCatigores.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -95,6 +99,7 @@ class CatigoresFragment : Fragment() {
         if (show)
         {
             binding.progressBar4.visibility=View.VISIBLE
+
         }else{
             binding.progressBar4.visibility=View.INVISIBLE
         }
@@ -106,6 +111,7 @@ class CatigoresFragment : Fragment() {
         {
             binding.imgErrorCatigores.visibility=View.VISIBLE
             binding.tvErrorCatigores.visibility=View.VISIBLE
+            binding.tvErrorCatigores.text=msg
         }else{
             binding.imgErrorCatigores.visibility=View.INVISIBLE
             binding.tvErrorCatigores.visibility=View.INVISIBLE
@@ -122,6 +128,8 @@ class CatigoresFragment : Fragment() {
         binding.btnWoman.setIconTintResource(R.color.darkgray)
         binding.btnChild.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
         binding.btnChild.setIconTintResource(R.color.darkgray)
+        binding.btnTime.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
+        binding.btnTime.setIconTintResource(R.color.darkgray)
     }
 
     private fun setManCheaked()
@@ -134,6 +142,8 @@ class CatigoresFragment : Fragment() {
         binding.btnWoman.setIconTintResource(R.color.darkgray)
         binding.btnChild.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
         binding.btnChild.setIconTintResource(R.color.darkgray)
+        binding.btnTime.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
+        binding.btnTime.setIconTintResource(R.color.darkgray)
     }
 
     private fun setWomanCheaked()
@@ -146,6 +156,8 @@ class CatigoresFragment : Fragment() {
         binding.btnWoman.setIconTintResource(R.color.myred)
         binding.btnChild.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
         binding.btnChild.setIconTintResource(R.color.darkgray)
+        binding.btnTime.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
+        binding.btnTime.setIconTintResource(R.color.darkgray)
     }
 
     private fun setChiledCheaked()
@@ -158,6 +170,22 @@ class CatigoresFragment : Fragment() {
         binding.btnWoman.setIconTintResource(R.color.darkgray)
         binding.btnChild.setTextColor(ContextCompat.getColor(requireContext(),R.color.myred))
         binding.btnChild.setIconTintResource(R.color.myred)
+        binding.btnTime.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
+        binding.btnTime.setIconTintResource(R.color.darkgray)
+    }
+    private fun setLastCheaked()
+    {
+        binding.btnAll.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
+        binding.btnAll.setIconTintResource(R.color.darkgray)
+        binding.btnMan.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
+        binding.btnMan.setIconTintResource(R.color.darkgray)
+        binding.btnWoman.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
+        binding.btnWoman.setIconTintResource(R.color.darkgray)
+        binding.btnChild.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkgray))
+        binding.btnChild.setIconTintResource(R.color.darkgray)
+        binding.btnTime.setTextColor(ContextCompat.getColor(requireContext(),R.color.myred))
+        binding.btnTime.setIconTintResource(R.color.myred)
+
     }
 
 

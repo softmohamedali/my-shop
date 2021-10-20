@@ -88,12 +88,9 @@ class ShowPeoductFragment : Fragment() {
             it.forEach {
                 if (it.prod.hashCode() == product.hashCode()) {
                     changeHertColor(binding.btnOrdersShprofrag, R.color.myred)
+                    Log.d("moali","if")
                     isFav=true
                     favid=it.id!!
-                } else {
-                    changeHertColor(binding.btnOrdersShprofrag, R.color.darkgray)
-                    isFav=false
-                    favid=null
                 }
             }
         })

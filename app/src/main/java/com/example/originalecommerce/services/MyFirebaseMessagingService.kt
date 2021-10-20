@@ -3,21 +3,17 @@ package com.example.originalecommerce.services
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.NotificationManager.IMPORTANCE_HIGH
-import android.app.PendingIntent
-import android.app.PendingIntent.FLAG_ONE_SHOT
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
-import android.os.Bundle
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.navigation.NavDeepLinkBuilder
 import com.example.originalecommerce.R
+import com.example.originalecommerce.data.local.entitys.NotificationEntity
 import com.example.originalecommerce.models.Product
 import com.example.originalecommerce.ui.body.BodyActivity
-import com.example.originalecommerce.utils.Constants
-import com.google.android.datatransport.cct.internal.LogResponse.fromJson
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.google.gson.Gson
@@ -34,9 +30,12 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
 
     override fun onMessageReceived(msg: RemoteMessage) {
         super.onMessageReceived(msg)
-        val prod=msg.data["product"]
-        val bundle = Bundle()
-        bundle.putString(Constants.PRODUCT_BYNDLE_KEY,prod)
+        val prodString:String =msg.data["product"]!!
+        Log.d("rore","$prodString")
+        prodString.substring( 1, prodString.length - 1 )
+        val prod:Product=json.fromJson(prodString,object : TypeToken<Product>(){}.type)
+        val notTitle=msg.data["title"]
+        val notMsg=msg.data["msg"]
         val intent=Intent(this,BodyActivity::class.java)
         val notificationManger=getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val notificationID=Random.nextInt()
@@ -48,15 +47,13 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent2 = NavDeepLinkBuilder(this)
             .setGraph(R.navigation.body_nav)
-            .setDestination(R.id.showPeoductFragment)
-            .setArguments(bundle)
+            .setDestination(R.id.catigoresFragment)
             .setComponentName(BodyActivity::class.java)
             .createPendingIntent()
 
-        val pendingIntent=PendingIntent.getActivity(this,1,intent,FLAG_ONE_SHOT)
         val notification=NotificationCompat.Builder(this,"myId")
-            .setContentTitle(msg.data["title"])
-            .setContentText(msg.data["msg"])
+            .setContentTitle(notTitle)
+            .setContentText(notMsg)
             .setSmallIcon(R.drawable.icon_cart)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent2)

@@ -47,9 +47,10 @@ class ProductItemAdapter(
     override fun onBindViewHolder(holder: ProductItemAdapter.Vh, position: Int) {
         val product=productsList[position]
         val view=holder.view
+
         view.etName.text=product.name
-        view.etPrice.text=product.buyPrice
-        view.etOffer.text="$ ${product.offer}"
+        view.etPrice.text="${product.buyPrice} $"
+        view.etOffer.text="-${product.offer}%"
         view.imgImg.load(product.img){
             error(R.drawable.ic_image)
             crossfade(600)

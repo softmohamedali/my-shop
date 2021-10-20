@@ -7,6 +7,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
 import javax.inject.Inject
@@ -44,13 +45,20 @@ class FireBasecSource @Inject constructor(
     fun getAllBestProduct()=firestore.collection(Constants.PRODUCT_COLLLECTION)
         .whereEqualTo(Constants.PRODUCT_ISBESTSALLER,"true")
 
+    fun getSortedProduct()=firestore.collection(Constants.PRODUCT_COLLLECTION)
+        .orderBy(Constants.PRODUCT_TIME, Query.Direction.DESCENDING).limit(3)
+
     fun getAllOfferProduct()=firestore.collection(Constants.PRODUCT_COLLLECTION)
         .whereEqualTo(Constants.PRODUCT_ISOFFR,"true")
 
     fun getAllCatigory()=firestore.collection(Constants.CATIGORY_COLLECTION)
 
     fun search(name:String)=firestore.collection(Constants.PRODUCT_COLLLECTION)
-        .whereEqualTo(Constants.PRODUCT_NAME,name)
+        .orderBy(Constants.PRODUCT_NAME)
+        .startAt(name.trim())
+        .endAt(name.trim()+"\uf8ff")
+        .get()
+
 
     fun uploadPayments()=firestore.collection(Constants.PAYMENTS_COLLECTION)
         .document()

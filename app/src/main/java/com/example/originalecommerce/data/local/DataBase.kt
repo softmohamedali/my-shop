@@ -14,9 +14,10 @@ import com.example.orignal_ecommerce_manger.models.Catigory
             CatigoryEntity::class,
             OfferEntity::class,
             FavEntity::class,
-            OrderEntity::class
+            OrderEntity::class,
+            NotificationEntity::class
         ),
-        version =4,
+        version =5,
         exportSchema = false
 )
 @TypeConverters(MyTypeConverter::class)

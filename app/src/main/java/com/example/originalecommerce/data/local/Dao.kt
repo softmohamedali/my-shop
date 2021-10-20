@@ -55,4 +55,11 @@ interface Dao {
     @Update
     suspend fun UpdateOrder(orderEntity: OrderEntity)
 
+    @Insert
+    suspend fun insertNotific(notifi:NotificationEntity)
+
+    @Query("SELECT * FROM notification")
+    fun getAllNotification():Flow<MutableList<NotificationEntity>>
+
+
 }

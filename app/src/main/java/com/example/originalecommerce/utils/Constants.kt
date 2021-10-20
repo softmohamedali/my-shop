@@ -27,11 +27,13 @@ object Constants {
     const val TYPE_MAN="man"
     const val TYPE_CHILD="child"
     const val TYPE_WOMAN="woman"
+    const val PRODUCT_TIME="time"
 
     //DataBase Constants
     const val PRODUCT_best_TABLE_NAME="best"
     const val PRODUCT_ORDER_TABLE_NAME="orders"
     const val PRODUCT_offer_TABLE_NAME="offer"
+    const val NOTIFICATION_TABLE_NAME="notification"
     const val Catigory_TABLE_NAME="Catigorys"
     const val PRODUCT_FAV_TABLE_NAME="PRODUCTSFav"
     const val DATABASE_NAME="DataBaseName"

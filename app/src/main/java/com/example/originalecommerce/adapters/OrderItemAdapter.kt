@@ -1,5 +1,6 @@
 package com.example.originalecommerce.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
@@ -44,6 +45,7 @@ class OrderItemAdapter (var myViewModel: MainViewModel, var lifeCycle: Lifecycle
         val orderEntity=orderEntityList[position]
         val order=orderEntity.prodct
         val view=holder.view
+        Log.d("moali",position.toString())
         _totoal+= orderEntity.totalPrice!!
         totalPrice.value=_totoal
         view.tvCount.text=orderEntity.count.toString()
@@ -55,10 +57,11 @@ class OrderItemAdapter (var myViewModel: MainViewModel, var lifeCycle: Lifecycle
         }
 
         holder.view.btnDeleteOrderitem.setOnClickListener {
-            myViewModel.deleteOrder(orderEntityList[position])
+
             _totoal-=orderEntity.totalPrice!!
             totalPrice.value=_totoal
             deleteItem(position)
+            Log.d("moali",position.toString())
 
         }
 
@@ -109,7 +112,8 @@ class OrderItemAdapter (var myViewModel: MainViewModel, var lifeCycle: Lifecycle
     fun deleteItem(pos:Int)
     {
         orderEntityList.removeAt(pos)
-        notifyItemChanged(pos)
+        notifyItemRemoved(pos)
+        myViewModel.deleteOrder(orderEntityList[pos])
     }
     fun deleAll()
     {

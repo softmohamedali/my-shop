@@ -27,7 +27,7 @@
         android:layout_height="@dimen/_35sdp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        app:backgroundTint="@color/mygray"
+        app:backgroundTint="@color/back_back_btn"
         app:cornerRadius="10dp"
         app:icon="@drawable/ic_back"
         app:iconTint="@color/icons"
@@ -45,6 +45,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_back_catigores">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_Time"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:inputType="textPersonName"
+            android:text="@string/last"
+            android:textColor="@color/myred"
+            android:textSize="@dimen/_9sdp"
+            app:backgroundTint="@color/background"
+            app:icon="@drawable/ic_clock"
+            app:iconGravity="textStart"
+            app:iconTint="@color/myred"
+            app:strokeColor="@color/background"
+            app:strokeWidth="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_all"

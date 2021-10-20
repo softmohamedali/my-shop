@@ -153,9 +153,13 @@ dependencies {
 
     //image slider
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
+    implementation 'com.opensooq.android:pluto:1.6'
 
     //stateprogressbar
     implementation 'com.kofigyan.stateprogressbar:stateprogressbar:1.0.0'
+
+    //animation
+    implementation 'com.daimajia.androidanimations:library:2.4@aar'
 
 }
 kapt {

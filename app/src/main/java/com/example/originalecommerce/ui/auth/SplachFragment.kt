@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 import com.example.originalecommerce.R
 import com.example.originalecommerce.databinding.FragmentSplachBinding
 import com.example.originalecommerce.ui.body.BodyActivity
@@ -30,6 +32,8 @@ class SplachFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding= FragmentSplachBinding.inflate(layoutInflater)
+
+        YoYo.with(Techniques.Bounce).duration(1000).repeat(2).playOn(binding.imageView11)
 
         lifecycleScope.launch {
             delay(2000)

@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Original Ecommerce</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="find_your_product">Find your Product</string>
     <string name="img">img</string>
@@ -69,12 +70,11 @@
     <string name="orders">Orders</string>
     <string name="type">Type</string>
     <string name="catigores">Catigores</string>
-    <string name="settig">Setteing</string>
+    <string name="settig">الاعدادات</string>
     <string name="notification_sound">Notification Sound</string>
-    <string name="arabic_languashe">Arabic Languashe</string>
+    <string name="arabic_languashe">اللغه العربيه</string>
     <string name="last">Last</string>
-    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode">الوضع الليلي</string>
     <string name="first_name">First name</string>
     <string name="last_name">last Name</string>
-
 </resources>

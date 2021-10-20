@@ -11,8 +11,8 @@
         android:id="@+id/imageView11"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
+        android:layout_marginEnd="32dp"
         android:src="@drawable/icon_cart"
-        app:tint="@color/icons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:text="Fashion Story"
         android:textColor="@color/text1"
         android:textSize="@dimen/_30sdp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView11"
-        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 </androidx.constraintlayout.widget.ConstraintLayout>

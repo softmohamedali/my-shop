@@ -23,6 +23,7 @@ data class Product(
     var isRecommended:String?=null,
     var sizeAvilable:String?=null,
     var colorAvialable:MutableList<String>?=null,
-    var type:String?=null
+    var type:String?=null,
+    var time:String?=null
 ):Parcelable {
 }

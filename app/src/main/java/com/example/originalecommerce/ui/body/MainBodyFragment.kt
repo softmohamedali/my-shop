@@ -1,5 +1,6 @@
 package com.example.originalecommerce.ui.body
 
+import android.graphics.Movie
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +21,7 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.originalecommerce.R
 import com.example.originalecommerce.adapters.CatigoryItemAdapter
+import com.example.originalecommerce.adapters.MyCustomSliderAdapter
 import com.example.originalecommerce.adapters.ProductItemAdapter
 import com.example.originalecommerce.databinding.FragmentMainBodyBinding
 import com.example.originalecommerce.models.Product
@@ -27,6 +30,8 @@ import com.example.originalecommerce.viewmodels.MainViewModel
 import com.example.orignal_ecommerce_manger.models.Catigory
 import com.example.orignal_ecommerce_manger.util.StatusResult
 import com.example.orignal_ecommerce_manger.util.observerOnce
+import com.opensooq.pluto.PlutoView
+import com.opensooq.pluto.listeners.OnItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -43,8 +48,8 @@ class MainBodyFragment : Fragment() {
     private val mCatigoryAdapter by lazy { CatigoryItemAdapter() }
 
 
-    private lateinit var imgSliderList: ArrayList<SlideModel>
-    private lateinit var imageSlider: ImageSlider
+    private lateinit var imgSliderList: MutableList<Product>
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,9 +68,9 @@ class MainBodyFragment : Fragment() {
         binidng.imgMyordersMainfrag.setOnClickListener {
             findNavController().navigate(R.id.action_mainBodyFragment_to_showMyOrderFragment)
         }
-        binidng.ibtnNotifiMainfrag.setOnClickListener {
-            findNavController().navigate(R.id.action_mainBodyFragment_to_notificationFragment)
-        }
+//        binidng.ibtnNotifiMainfrag.setOnClickListener {
+//            findNavController().navigate(R.id.action_mainBodyFragment_to_notificationFragment)
+//        }
         binidng.btnSearchMainfrag.setOnClickListener {
             findNavController().navigate(R.id.action_mainBodyFragment_to_searchFragment)
         }
@@ -108,7 +113,7 @@ class MainBodyFragment : Fragment() {
         mViewModel.getAllOfferProducts()
         mViewModel.readOffer.observerOnce(viewLifecycleOwner, {
             if (it.isNotEmpty()) {
-                setSliderOfferImg(it[0].offerProducts)
+                setupSlider(it[0].offerProducts)
             } else {
                 getRemoteDataOfferProds()
             }
@@ -119,12 +124,12 @@ class MainBodyFragment : Fragment() {
         mViewModel.offerProducts.observe(viewLifecycleOwner, { it ->
             when {
                 it is StatusResult.Success -> {
-                    setSliderOfferImg(it.data!!)
+                    setupSlider(it.data!!)
                 }
                 it is StatusResult.Error -> {
                     mViewModel.readOffer.observerOnce(viewLifecycleOwner, {
                         if (it.isNotEmpty()) {
-                            setSliderOfferImg(it[0].offerProducts)
+                            setupSlider(it[0].offerProducts)
                         }
                     })
                 }
@@ -170,23 +175,6 @@ class MainBodyFragment : Fragment() {
         })
     }
 
-
-    private fun setSliderOfferImg(list: MutableList<Product>) {
-        imgSliderList = ArrayList<SlideModel>() // Create image list
-        imageSlider = binidng.imgMainfragSlideroffers
-
-        imageSlider.setItemClickListener(object : ItemClickListener {
-            override fun onItemSelected(position: Int) {
-                findNavController().navigate(R.id.action_mainBodyFragment_to_productCatigoryFragment)
-            }
-        })
-        list.forEach {
-            imgSliderList.add(SlideModel(it.img, "Offer rech to ${it.offer} %", ScaleTypes.FIT))
-        }
-        imageSlider.setImageList(imgSliderList)
-
-    }
-
     private fun setUpRecyclerView() {
         binidng.recyBestsallerProd.apply {
             adapter = mProductBestSaleAdapter
@@ -215,6 +203,23 @@ class MainBodyFragment : Fragment() {
         } else {
             binidng.recyBestsallerProd.hideShimmer()
         }
+    }
+
+    fun setupSlider(list: MutableList<Product>)
+    {
+        imgSliderList = mutableListOf()
+        list.forEach {
+            imgSliderList.add(it)
+        }
+        val pluto = binidng.sliderView
+        val myAdapter = MyCustomSliderAdapter(imgSliderList, object : OnItemClickListener<Product> {
+            override fun onItemClicked(item: Product?, position: Int) {
+                val action=MainBodyFragmentDirections.
+                actionMainBodyFragmentToShowPeoductFragment(item!!)
+                findNavController().navigate(action)
+            }
+        })
+        pluto.create(myAdapter, lifecycle = lifecycle)
     }
 
     override fun onDestroy() {
