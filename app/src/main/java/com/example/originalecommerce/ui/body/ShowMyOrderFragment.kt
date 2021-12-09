@@ -11,19 +11,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.originalecommerce.R
 import com.example.originalecommerce.adapters.TrackOrderAdapter
+import com.example.originalecommerce.data.local.entitys.OrderEntity
 import com.example.originalecommerce.databinding.FragmentSearchBinding
 import com.example.originalecommerce.databinding.FragmentShowMyOrderBinding
+import com.example.originalecommerce.models.AllREquests
 import com.example.originalecommerce.viewmodels.MainViewModel
 import com.example.orignal_ecommerce_manger.util.StatusResult
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ShowMyOrderFragment : Fragment() {
+class ShowMyOrderFragment : Fragment(),TrackOrderAdapter.TrackItemListener {
     private var _binding: FragmentShowMyOrderBinding?=null
     private val binding get() = _binding!!
 
     private val mainViewModel by viewModels<MainViewModel>()
-    private val mAdapter by lazy { TrackOrderAdapter() }
+    private val mAdapter by lazy { TrackOrderAdapter(this) }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,6 +46,7 @@ class ShowMyOrderFragment : Fragment() {
                 it is StatusResult.Error ->{
                     showProgress(false)
                     showErrorView(true,it.masg!!)
+                    mAdapter.setData(mutableListOf())
                 }
                 it is StatusResult.Success ->{
                     showErrorView(false)
@@ -91,6 +94,12 @@ class ShowMyOrderFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding=null
+    }
+
+    override fun onItemClik(items: MutableList<OrderEntity>) {
+        var allrequests=AllREquests(items)
+        val action=ShowMyOrderFragmentDirections.actionShowMyOrderFragmentToShowMyRequestFragment(allrequests)
+        findNavController().navigate(action)
     }
 
 }

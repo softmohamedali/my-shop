@@ -213,7 +213,11 @@
         android:id="@+id/showMyOrderFragment"
         android:name="com.example.originalecommerce.ui.body.ShowMyOrderFragment"
         android:label="fragment_show_my_order"
-        tools:layout="@layout/fragment_show_my_order" />
+        tools:layout="@layout/fragment_show_my_order" >
+        <action
+            android:id="@+id/action_showMyOrderFragment_to_showMyRequestFragment"
+            app:destination="@id/showMyRequestFragment" />
+    </fragment>
     <fragment
         android:id="@+id/catigoresFragment"
         android:name="com.example.originalecommerce.ui.body.CatigoresFragment"
@@ -223,5 +227,14 @@
             android:id="@+id/action_catigoresFragment_to_showPeoductFragment"
             app:destination="@id/showPeoductFragment"
             app:enterAnim="@anim/anim_enter" />
+    </fragment>
+    <fragment
+        android:id="@+id/showMyRequestFragment"
+        android:name="com.example.originalecommerce.ui.body.ShowMyRequestFragment"
+        android:label="fragment_show_my_request"
+        tools:layout="@layout/fragment_show_my_request" >
+        <argument
+            android:name="requests"
+            app:argType="com.example.originalecommerce.models.AllREquests" />
     </fragment>
 </navigation>

@@ -16,10 +16,14 @@ import com.example.originalecommerce.ui.body.MyCartFragmentDirections
 import com.example.originalecommerce.viewmodels.MainViewModel
 import com.example.orignal_ecommerce_manger.util.MyDiff
 
-class OrderItemAdapter (var myViewModel: MainViewModel, var lifeCycle: LifecycleOwner)
+class OrderItemAdapter(
+    var myViewModel: MainViewModel,
+    var lifeCycle: LifecycleOwner,
+    itemCllickListener: OrderItemAdapter.ProductItemClick
+)
     : RecyclerView.Adapter<OrderItemAdapter.Vh>() {
     private var orderEntityList= mutableListOf<OrderEntity>()
-
+    private var itemListener=itemCllickListener
     val totalPrice = MutableLiveData<Float>()
     private var _totoal=0f
     init {
@@ -46,8 +50,8 @@ class OrderItemAdapter (var myViewModel: MainViewModel, var lifeCycle: Lifecycle
         val order=orderEntity.prodct
         val view=holder.view
         Log.d("moali",position.toString())
-        _totoal+= orderEntity.totalPrice!!
-        totalPrice.value=_totoal
+//        _totoal+= orderEntity.totalPrice!!
+//        totalPrice.value=_totoal
         view.tvCount.text=orderEntity.count.toString()
         view.tvNameOrderitem.text=order?.name
         view.tvPriceOrderitem.text=order?.buyPrice
@@ -103,17 +107,23 @@ class OrderItemAdapter (var myViewModel: MainViewModel, var lifeCycle: Lifecycle
 
     fun setData(newOrder:MutableList<OrderEntity>)
     {
+        totalPrice.value=0f
         val mydiff= MyDiff(orderEntityList,newOrder)
         val result= DiffUtil.calculateDiff(mydiff)
         orderEntityList=newOrder
         result.dispatchUpdatesTo(this)
+        newOrder.forEach {
+            totalPrice.value =totalPrice.value!!+it.totalPrice!!
+        }
     }
 
     fun deleteItem(pos:Int)
     {
+        val order=orderEntityList[pos]
         orderEntityList.removeAt(pos)
         notifyItemRemoved(pos)
-        myViewModel.deleteOrder(orderEntityList[pos])
+        itemListener.itembestClick(order)
+
     }
     fun deleAll()
     {
@@ -121,6 +131,11 @@ class OrderItemAdapter (var myViewModel: MainViewModel, var lifeCycle: Lifecycle
         myViewModel.deleteAllOrder()
         notifyDataSetChanged()
         totalPrice.value=0f
+    }
+
+    public interface ProductItemClick{
+        fun itembestClick(product:OrderEntity)
+
     }
 
 

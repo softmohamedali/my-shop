@@ -5,14 +5,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.originalecommerce.data.local.entitys.OrderEntity
 import com.example.originalecommerce.databinding.LayoutShowOrderItemBinding
 import com.example.originalecommerce.models.Paymnts
+import com.example.originalecommerce.models.Product
 import com.example.orignal_ecommerce_manger.util.MyDiff
 import com.kofigyan.stateprogressbar.StateProgressBar
 
-class TrackOrderAdapter : RecyclerView.Adapter<TrackOrderAdapter.Vh>() {
+class TrackOrderAdapter(
+    trackItemListener: TrackItemListener
+) : RecyclerView.Adapter<TrackOrderAdapter.Vh>() {
     private var paymentsList= mutableListOf<Paymnts>()
-
+    private var trackListen=trackItemListener
     class Vh(var view: LayoutShowOrderItemBinding): RecyclerView.ViewHolder(view.root)
     {
         companion object{
@@ -35,13 +39,19 @@ class TrackOrderAdapter : RecyclerView.Adapter<TrackOrderAdapter.Vh>() {
         val statusDes= arrayOf("request\nis done","in\nshipping","on the\nway"," delivered\nhanded")
         myView.progress3.setStateDescriptionData(statusDes)
         setStateNumber(myPay.statusPayments!!,myView.progress3)
-        myView.tvCountorder.text="Count Of Orders : ${myPay.orders?.size}"
+        var mcount=0
+        myPay.orders?.forEach {
+            mcount+= it.count!!
+        }
+        myView.tvCountorder.text="Count Of Orders : ${mcount}"
         myView.tvTimeOrdertrack.text="Time Of Oreder : ${myPay.time}"
         myPay.orders?.forEach {
             totalPrice+=it.totalPrice!!
         }
         myView.tvTotalpriceOrdertrack.text="Total Price : $totalPrice"
-
+        holder.itemView.setOnClickListener {
+            trackListen.onItemClik(myPay.orders!!)
+        }
 
     }
 
@@ -68,6 +78,12 @@ class TrackOrderAdapter : RecyclerView.Adapter<TrackOrderAdapter.Vh>() {
             4->{progress3.setCurrentStateNumber(StateProgressBar.StateNumber.FOUR)}
             else->{progress3.setCurrentStateNumber(StateProgressBar.StateNumber.FOUR)}
         }
+    }
+
+    interface TrackItemListener{
+        fun onItemClik(
+            items: MutableList<OrderEntity>,
+        )
     }
 
 

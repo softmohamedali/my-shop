@@ -141,7 +141,7 @@ class OrderInfoFragment : Fragment() {
         {
             findNavController().navigate(R.id.action_orderInfoFragment_to_paymentMethodFragment)
         }else{
-            findNavController().navigate(R.id.action_orderInfoFragment_to_myCartFragment)
+            findNavController().popBackStack()
         }
         mySnack(requireActivity(),binding.root,"Info Saved")
     }

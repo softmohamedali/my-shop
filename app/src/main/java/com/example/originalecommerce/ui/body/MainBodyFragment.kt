@@ -180,6 +180,7 @@ class MainBodyFragment : Fragment() {
             adapter = mProductBestSaleAdapter
             layoutManager =
                 GridLayoutManager(requireActivity(),2)
+
         }
         binidng.recyCatigoryMainfrag.apply {
             adapter = mCatigoryAdapter
@@ -204,7 +205,7 @@ class MainBodyFragment : Fragment() {
             binidng.recyBestsallerProd.hideShimmer()
         }
     }
-
+    
     fun setupSlider(list: MutableList<Product>)
     {
         imgSliderList = mutableListOf()

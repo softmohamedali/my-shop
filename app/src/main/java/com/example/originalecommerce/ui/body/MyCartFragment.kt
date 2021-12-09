@@ -35,12 +35,16 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MyCartFragment : Fragment() {
+class MyCartFragment : Fragment(),OrderItemAdapter.ProductItemClick {
     private var _binding: FragmentMycartBinding?=null
     private val binding get() = _binding!!
 
     private val mMainViewModel by viewModels<MainViewModel>()
-    private val mOrderadapter by lazy { OrderItemAdapter(mMainViewModel,requireActivity()) }
+    private val mOrderadapter by lazy { OrderItemAdapter(
+        mMainViewModel,
+        requireActivity(),
+        this
+    ) }
 
 
     @Inject
@@ -68,11 +72,12 @@ class MyCartFragment : Fragment() {
             binding.tvTotalpriceMycart.setText(it.toString())
         })
 
-        mMainViewModel.readOrders.observerOnce(viewLifecycleOwner,{
+        mMainViewModel.readOrders.observe(viewLifecycleOwner,{
             binding.tvTotalpriceMycart.setText("0")
             if (it.isEmpty())
             {
-                mOrderadapter.setData(it)
+                mOrderadapter.setData(mutableListOf())
+                orders=it
                 showEmptyorder(true)
             }else {
                 orders=it
@@ -103,7 +108,7 @@ class MyCartFragment : Fragment() {
     }
 
     private fun cheakWhichNav(order: MutableList<OrderEntity>?) {
-        if (binding.tvTotalpriceMycart.text=="0"&&order==null)
+        if (binding.tvTotalpriceMycart.text.toString()=="0"||order!!.isEmpty())
         {
             Toast.makeText(requireActivity(),"No Orders yet",Toast.LENGTH_SHORT).show()
         }
@@ -200,5 +205,9 @@ class MyCartFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding=null
+    }
+
+    override fun itembestClick(product: OrderEntity) {
+        mMainViewModel.deleteOrder(product)
     }
 }

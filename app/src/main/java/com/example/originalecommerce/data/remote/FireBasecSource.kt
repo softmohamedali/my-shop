@@ -65,6 +65,7 @@ class FireBasecSource @Inject constructor(
 
     fun getAllPayments()=firestore
         .collection(Constants.PAYMENTS_COLLECTION)
+        .whereEqualTo("id",getCurrentUser()?.uid)
 
 
 }

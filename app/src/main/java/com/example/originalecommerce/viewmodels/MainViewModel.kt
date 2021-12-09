@@ -352,7 +352,7 @@ class MainViewModel @Inject constructor(
 
     fun uploadPayments(paymnts: Paymnts){
         val ref=repo.fireBasecSource.uploadPayments()
-        val id=ref.id
+        val id=repo.fireBasecSource.getCurrentUser()?.uid
         paymnts.id=id
         _paymntsIsUpload.value=StatusResult.Loading()
         ref.set(paymnts)

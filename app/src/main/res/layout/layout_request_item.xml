@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="@dimen/_4sdp"
+            app:strokeWidth="0dp"
+            app:strokeColor="@color/none"
+            android:elevation="0dp"
+            android:outlineProvider="none"
+            android:background="@color/background"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:layout_margin="@dimen/_4sdp"
+                >
+
+                <ImageView
+                    android:id="@+id/img_img_requestitem"
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_140sdp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/et_name_requestitem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="cotton black"
+                    android:textColor="@color/text1"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/img_img_requestitem"
+                    app:layout_constraintTop_toBottomOf="@+id/img_img_requestitem" />
+
+                <TextView
+                    android:id="@+id/et_price_requestitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="2666$"
+                    android:textColor="@color/text1"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/et_name_requestitem"
+                    app:layout_constraintTop_toBottomOf="@+id/et_name_requestitem" />
+
+                <TextView
+                    android:id="@+id/et_count_requestitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="2666$"
+                    android:textColor="@color/text1"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/et_price_requestitem"
+                    app:layout_constraintTop_toBottomOf="@+id/et_price_requestitem" />
+
+                <TextView
+                    android:id="@+id/et_color_requestitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="2666$"
+                    android:textColor="@color/text1"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/et_count_requestitem"
+                    app:layout_constraintTop_toBottomOf="@+id/et_count_requestitem" />
+
+                <TextView
+                    android:id="@+id/et_size_requestitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="2666$"
+                    android:textColor="@color/text1"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/et_color_requestitem"
+                    app:layout_constraintTop_toBottomOf="@+id/et_color_requestitem" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    app:cardCornerRadius="@dimen/_100sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/et_color_requestitem"
+                    app:layout_constraintStart_toEndOf="@+id/et_color_requestitem"
+                    app:layout_constraintTop_toTopOf="@+id/et_color_requestitem">
+
+                    <View
+                        android:id="@+id/color_dot_requestitem"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" />
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

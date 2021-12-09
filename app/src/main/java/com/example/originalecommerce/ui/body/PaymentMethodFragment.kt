@@ -82,7 +82,7 @@ class PaymentMethodFragment : Fragment() {
             cartCvv2,
             cartValid
         )
-        findNavController().navigate(R.id.action_paymentMethodFragment_to_myCartFragment)
+        findNavController().popBackStack()
         mySnack(requireActivity(),binding.root,"Payment info saved")
     }
 
