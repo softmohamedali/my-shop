@@ -161,7 +161,8 @@ dependencies {
     //animation
     implementation 'com.daimajia.androidanimations:library:2.4@aar'
 
-
+    implementation "io.grpc:grpc-okhttp:1.41.0"
+    implementation 'com.google.code.gson:gson:2.8.6'
 
 }
 kapt {

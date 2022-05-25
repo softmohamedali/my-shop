@@ -78,17 +78,17 @@ class MainBodyFragment : Fragment() {
 
     private fun readLocalBestProds() {
         mViewModel.getAllBestProducts()
-        mViewModel.readBestsaller.observerOnce(viewLifecycleOwner, {
+        mViewModel.readBestsaller.observerOnce(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
                 mProductBestSaleAdapter.setData((it.get(0).bestProduct))
             } else {
                 getRemoteDataBestProds()
             }
-        })
+        }
     }
 
     private fun getRemoteDataBestProds() {
-        mViewModel.bestProducts.observe(viewLifecycleOwner, { it ->
+        mViewModel.bestProducts.observe(viewLifecycleOwner) { it ->
             when {
                 it is StatusResult.Success -> {
                     mProductBestSaleAdapter.setData(it.data!!)
@@ -96,65 +96,65 @@ class MainBodyFragment : Fragment() {
                 }
                 it is StatusResult.Error -> {
                     showShimmerProductbest(false)
-                    mViewModel.readBestsaller.observerOnce(viewLifecycleOwner, {
+                    mViewModel.readBestsaller.observerOnce(viewLifecycleOwner) {
                         if (it.isNotEmpty()) {
                             mProductBestSaleAdapter.setData((it.get(0).bestProduct))
                         }
-                    })
+                    }
                 }
                 it is StatusResult.Loading -> {
                     showShimmerProductbest(true)
                 }
             }
-        })
+        }
     }
 
     private fun readLocalOfferProds() {
         mViewModel.getAllOfferProducts()
-        mViewModel.readOffer.observerOnce(viewLifecycleOwner, {
+        mViewModel.readOffer.observerOnce(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
                 setupSlider(it[0].offerProducts)
             } else {
                 getRemoteDataOfferProds()
             }
-        })
+        }
     }
 
     private fun getRemoteDataOfferProds() {
-        mViewModel.offerProducts.observe(viewLifecycleOwner, { it ->
+        mViewModel.offerProducts.observe(viewLifecycleOwner) { it ->
             when {
                 it is StatusResult.Success -> {
                     setupSlider(it.data!!)
                 }
                 it is StatusResult.Error -> {
-                    mViewModel.readOffer.observerOnce(viewLifecycleOwner, {
+                    mViewModel.readOffer.observerOnce(viewLifecycleOwner) {
                         if (it.isNotEmpty()) {
                             setupSlider(it[0].offerProducts)
                         }
-                    })
+                    }
                 }
                 it is StatusResult.Loading -> {
                 }
             }
-        })
+        }
     }
 
     private fun readLocalcatigory() {
         Log.d("warf", "read local")
         mViewModel.getAllCatigory()
-        mViewModel.readCatigory.observerOnce(viewLifecycleOwner, {
+        mViewModel.readCatigory.observerOnce(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
                 mCatigoryAdapter.setData((it.get(0).catigorys))
             } else {
                 getRemoteDataCatigory()
             }
-        })
+        }
     }
 
 
     private fun getRemoteDataCatigory() {
         Log.d("warf", "read remote")
-        mViewModel.catigory.observe(viewLifecycleOwner, { it ->
+        mViewModel.catigory.observe(viewLifecycleOwner) { it ->
             when {
                 it is StatusResult.Success -> {
                     mCatigoryAdapter.setData(it.data!!)
@@ -162,17 +162,17 @@ class MainBodyFragment : Fragment() {
                 }
                 it is StatusResult.Error -> {
                     showShimmercatigory(false)
-                    mViewModel.readCatigory.observerOnce(viewLifecycleOwner, {
+                    mViewModel.readCatigory.observerOnce(viewLifecycleOwner) {
                         if (it.isNotEmpty()) {
                             mCatigoryAdapter.setData((it.get(0).catigorys))
                         }
-                    })
+                    }
                 }
                 it is StatusResult.Loading -> {
                     showShimmercatigory(true)
                 }
             }
-        })
+        }
     }
 
     private fun setUpRecyclerView() {

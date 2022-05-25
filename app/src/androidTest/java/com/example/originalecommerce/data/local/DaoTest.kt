@@ -16,6 +16,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
 
 @ExperimentalCoroutinesApi
@@ -47,11 +48,11 @@ class DaoTest {
     }
 
     @Test
-    fun testInseartion()=runBlocking {
-            val order=OrderEntity(Product(),1,"",4f,4f,"","",1)
+    fun testInseartion()= runBlockingTest {
+            val order=OrderEntity(Product(),3,"",4f,4f,"","",41)
             dao.insertOrder(order)
 
             val orders=dao.getAllOrders().asLiveData().getOrAwaitValue ()
             assertThat(orders).contains(order)
-        }
+    }
 }

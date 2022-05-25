@@ -25,13 +25,11 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
 
     override fun onNewToken(p0: String) {
         super.onNewToken(p0)
-        Log.d("warfme",p0)
     }
 
     override fun onMessageReceived(msg: RemoteMessage) {
         super.onMessageReceived(msg)
         val prodString:String =msg.data["product"]!!
-        Log.d("rore","$prodString")
         prodString.substring( 1, prodString.length - 1 )
         val prod:Product=json.fromJson(prodString,object : TypeToken<Product>(){}.type)
         val notTitle=msg.data["title"]

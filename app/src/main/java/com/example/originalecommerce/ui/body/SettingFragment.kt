@@ -1,5 +1,7 @@
 package com.example.originalecommerce.ui.body
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.Settings
 import android.view.Gravity
@@ -17,11 +19,13 @@ import java.util.*
 class SettingFragment : Fragment() {
     private var _binding: FragmentSettingBinding?=null
     private val binding get() = _binding!!
+    lateinit var shared:SharedPreferences
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding= FragmentSettingBinding.inflate(layoutInflater)
+        shared=requireContext().getSharedPreferences("lang",Context.MODE_PRIVATE)
         binding.btnBackSetting.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -41,34 +45,45 @@ class SettingFragment : Fragment() {
         binding.switchArbic.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked)
             {
-                binding.switchArbic.setText("اللغه العربيه")
-                binding.switchDark.setText("الوضع الليلي")
-                binding.textsetting.setText("الاعدادات")
+                changeLang("ar")
+                saveShared("ar")
                 binding.switchArbic.gravity=Gravity.END
                 binding.switchDark.gravity=Gravity.END
             }else{
-                binding.switchArbic.setText("Arabic Languashe")
-                binding.switchDark.setText("Dark Mode")
-                binding.textsetting.setText("setting")
+                changeLang("en")
+                saveShared("en")
                 binding.switchArbic.gravity=Gravity.START
                 binding.switchDark.gravity=Gravity.START
             }
         }
+        val langushe=getLangSha()
+        binding.switchArbic.isChecked = langushe != "en"
         return binding.root
     }
 
 
-    private fun changeLang(ch:Boolean)
+    private fun changeLang(localcode:String)
     {
-        var str="en"
-        if (ch)
-        {
-            str="ar"
+        val local=Locale(localcode)
+        Locale.setDefault(local)
+        val resourses=requireActivity().resources
+        val config=resourses.configuration
+        config.setLocale(local)
+        resourses.updateConfiguration(config,resourses.displayMetrics)
+    }
+
+    fun saveShared(lang:String)
+    {
+        val editor=shared.edit()
+        editor.apply{
+            putString("lang",lang)
+            apply()
         }
-        val res=requireContext().resources
-        val con=res.configuration
-        con.setLocale(Locale(str))
-        res.updateConfiguration(con,res.displayMetrics)
+    }
+
+    fun getLangSha():String{
+        val lang=shared.getString("lang","en")
+        return lang!!
     }
 
     override fun onDestroy() {
